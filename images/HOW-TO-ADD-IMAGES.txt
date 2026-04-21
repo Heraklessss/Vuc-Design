@@ -1,0 +1,68 @@
+╔══════════════════════════════════════════════════════════════╗
+║           VUC DESIGNS — IMAGE REPLACEMENT GUIDE             ║
+╚══════════════════════════════════════════════════════════════╝
+
+HOW IT WORKS
+────────────
+This folder contains placeholder files that show you exactly
+which image goes where on your website.
+
+To add YOUR image: just replace the placeholder file with
+your own image — using the EXACT SAME filename.
+
+For example:
+  • Delete  →  project-01.jpg  (the placeholder)
+  • Add     →  project-01.jpg  (YOUR design image)
+  That's it. Open index.html and it shows your image.
+
+
+════════════════════════════════════════════════════
+  MARQUEE (the 3 scrolling rows at the top)
+════════════════════════════════════════════════════
+
+  thumb-01.jpg  →  Row 1, Image 1
+  thumb-02.jpg  →  Row 1, Image 2
+  thumb-03.jpg  →  Row 1, Image 3
+  thumb-04.jpg  →  Row 2, Image 1
+  thumb-05.jpg  →  Row 2, Image 2
+  thumb-06.jpg  →  Row 2, Image 3
+  thumb-07.jpg  →  Row 3, Image 1
+  thumb-08.jpg  →  Row 3, Image 2
+  thumb-09.jpg  →  Row 3, Image 3
+
+  Best size: 272 × 153 px (or any 16:9 image works too)
+  Format: JPG or WebP (WebP is faster)
+
+
+════════════════════════════════════════════════════
+  PORTFOLIO GRID (the main work section)
+════════════════════════════════════════════════════
+
+  project-01.jpg  →  Grid Row 1, Column 1  (top-left)
+  project-02.jpg  →  Grid Row 1, Column 2
+  project-03.jpg  →  Grid Row 1, Column 3  (top-right)
+  project-04.jpg  →  Grid Row 2, Column 1
+  project-05.jpg  →  Grid Row 2, Column 2
+  project-06.jpg  →  Grid Row 2, Column 3
+  project-07.jpg  →  Grid Row 3, Column 1
+  project-08.jpg  →  Grid Row 3, Column 2
+  project-09.jpg  →  Grid Row 3, Column 3
+  project-10.jpg  →  Grid Row 4, Column 1
+  project-11.jpg  →  Grid Row 4, Column 2
+  project-12.jpg  →  Grid Row 4, Column 3  (bottom-right)
+
+  Best size: any 16:9 image (e.g. 1280×720 or 1920×1080)
+  Format: JPG or WebP
+
+
+════════════════════════════════════════════════════
+  TIPS FOR BEST QUALITY
+════════════════════════════════════════════════════
+
+  ✓ Convert images to WebP using squoosh.app (free, fast)
+  ✓ Keep file size under 200KB per image for fast loading
+  ✓ Use 16:9 ratio for consistent grid layout
+  ✓ If using WebP, rename the file:
+      project-01.jpg  →  project-01.webp
+    Then update index.html: src="images/project-01.webp"
+

@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ╔══════════════════════════════════════════╗
+     ║  HOW TO CUSTOMIZE THIS WEBSITE           ║
+     ║                                          ║
+     ║  1. CHANGE YOUR NAME                     ║
+     ║     Search "Vuc Designs" → replace all   ║
+     ║                                          ║
+     ║  2. CHANGE HEADLINE TEXT                 ║
+     ║     Find the <h1> tag in the HERO section║
+     ║                                          ║
+     ║  3. CHANGE YOUR BIO                      ║
+     ║     Find "Hey, I'm Vuc" paragraph        ║
+     ║                                          ║
+     ║  4. ADD IMAGES → See comments below      ║
+     ║     in the PORTFOLIO GRID section        ║
+     ║                                          ║
+     ║  5. CHANGE STATS (250+, 150+ etc.)       ║
+     ║     Find the STATS section in HTML       ║
+     ║                                          ║
+     ║  6. CHANGE SOCIAL LINKS                  ║
+     ║     Find footer links, replace # with URL║
+     ╚══════════════════════════════════════════╝ -->
+
+<title>Vuc Designs — Graphic Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════════════
+   THEME TOKENS — Light & Dark
+══════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg:         #ffffff;
+  --bg-2:       #f7f6f3;
+  --bg-3:       #efefec;
+  --ink:        #0f0f0f;
+  --ink-2:      #3a3a3a;
+  --muted:      #8a8a8a;
+  --border:     rgba(0,0,0,0.07);
+  --border-2:   rgba(0,0,0,0.14);
+  --nav-bg:     rgba(255,255,255,0.90);
+  --blue:       #1a56e8;
+  --blue-lt:    #e8effe;
+  --blue-dk:    #0f38b0;
+  --ph-1:       #edf1f8;
+  --ph-2:       #e4ecf7;
+  --ph-3:       #dfe8f5;
+  --ph-txt:     #b0bdd4;
+  --toggle-bg:  #e8e8e4;
+  --toggle-ico: #666;
+}
+
+[data-theme="dark"] {
+  --bg:         #0c0c0e;
+  --bg-2:       #131316;
+  --bg-3:       #1a1a1f;
+  --ink:        #f0efec;
+  --ink-2:      #b8b6b0;
+  --muted:      #5a5a60;
+  --border:     rgba(255,255,255,0.06);
+  --border-2:   rgba(255,255,255,0.12);
+  --nav-bg:     rgba(12,12,14,0.92);
+  --blue:       #4d80f0;
+  --blue-lt:    rgba(77,128,240,0.12);
+  --blue-dk:    #6b96f5;
+  --ph-1:       #16161e;
+  --ph-2:       #131318;
+  --ph-3:       #181820;
+  --ph-txt:     #2e2e38;
+  --toggle-bg:  #252528;
+  --toggle-ico: #aaa;
+}
+
+/* ══════════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background .35s, color .35s;
+}
+
+/* ══════════════════════════════════════════════
+   NAV
+══════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0; z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 52px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background .35s, border-color .35s;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color .35s;
+}
+
+.nav-right { display: flex; align-items: center; gap: 28px; }
+
+.nav-links {
+  display: flex; gap: 30px;
+  list-style: none; align-items: center;
+}
+
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--ink); }
+
+/* Blue CTA button */
+.nav-cta {
+  background: var(--blue) !important;
+  color: #fff !important;
+  padding: 9px 22px;
+  border-radius: 100px;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: opacity .2s !important;
+}
+.nav-cta:hover { opacity: .85 !important; }
+
+/* Toggle button */
+.theme-toggle {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--toggle-bg);
+  border: 1px solid var(--border-2);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .3s, transform .15s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover { transform: scale(1.1); }
+.theme-toggle svg {
+  width: 16px; height: 16px;
+  fill: var(--toggle-ico);
+  transition: fill .3s;
+}
+
+/* ══════════════════════════════════════════════
+   MARQUEE
+══════════════════════════════════════════════ */
+.marquee-section {
+  padding-top: 73px;
+  overflow: hidden;
+  background: var(--bg);
+  transition: background .35s;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 10px;
+  padding: 5px 0;
+  width: max-content;
+}
+.marquee-track.go-left  { animation: go-left  30s linear infinite; }
+.marquee-track.go-right { animation: go-right 36s linear infinite; }
+.marquee-track.go-slow  { animation: go-left  44s linear infinite; }
+
+@keyframes go-left  { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
+@keyframes go-right { from { transform: translateX(-50%); } to { transform: translateX(0);    } }
+
+/* ── MARQUEE IMAGE THUMB ──
+   To replace placeholder with your image:
+   Change <div class="thumb-ph"> to:
+   <img src="images/your-file.jpg" class="thumb-img" alt="project name">
+*/
+.thumb-ph,
+.thumb-img {
+  width: 272px;
+  height: 153px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  transition: transform .3s, border-color .35s, background .35s;
+  overflow: hidden;
+}
+.thumb-img {
+  object-fit: cover;
+  display: block;
+}
+.thumb-ph:hover,
+.thumb-img:hover { transform: scale(1.04); z-index: 2; position: relative; }
+
+.thumb-ph span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ph-txt);
+  user-select: none;
+  transition: color .35s;
+}
+
+/* ══════════════════════════════════════════════
+   HERO
+══════════════════════════════════════════════ */
+.hero {
+  padding: 90px 52px 100px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue-lt);
+  border: 1px solid rgba(77,128,240,.22);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 12.5px;
+  color: var(--blue);
+  font-weight: 500;
+  margin-bottom: 36px;
+  transition: background .35s, color .35s;
+}
+
+.hero-badge .dot {
+  width: 7px; height: 7px;
+  background: var(--blue);
+  border-radius: 50%;
+  animation: blink 2.2s ease-in-out infinite;
+  transition: background .35s;
+}
+
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+/* ── HERO HEADLINE ──
+   To change text: edit lines below between the <h1> tags
+   The <em> word shows in blue italic — change "Remarkable" to anything
+*/
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(60px, 9.5vw, 112px);
+  font-weight: 500;
+  line-height: .88;
+  letter-spacing: -1.5px;
+  margin-bottom: 30px;
+  color: var(--ink);
+  transition: color .35s;
+}
+.hero h1 em { font-style: italic; color: var(--blue); transition: color .35s; }
+
+/* ── HERO SUBTEXT ──
+   To change: edit the <p> tag text below
+*/
+.hero p {
+  font-size: 17px;
+  color: var(--muted);
+  max-width: 500px;
+  margin: 0 auto 44px;
+  line-height: 1.75;
+  transition: color .35s;
+}
+
+.hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.btn-ink {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 14px 34px;
+  border-radius: 100px;
+  font-size: 14px;
+  text-decoration: none;
+  transition: background .35s, color .35s, opacity .2s;
+}
+.btn-ink:hover { opacity: .8; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  padding: 14px 34px;
+  border-radius: 100px;
+  border: 1px solid var(--border-2);
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color .2s, color .35s;
+}
+.btn-ghost:hover { border-color: var(--ink); }
+
+/* ══════════════════════════════════════════════
+   STATS
+   To change numbers: edit stat-num values below
+══════════════════════════════════════════════ */
+.stats-wrap { max-width: 680px; margin: 0 auto; padding: 0 52px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border-2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color .35s;
+}
+
+.stat {
+  padding: 30px 20px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  background: var(--bg);
+  transition: background .35s, border-color .35s;
+}
+.stat:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 46px;
+  font-weight: 500;
+  line-height: 1;
+  display: block;
+  color: var(--ink);
+  transition: color .35s;
+}
+.stat:nth-child(2) .stat-num { color: var(--blue); }
+
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: .2px;
+  transition: color .35s;
+}
+
+/* ══════════════════════════════════════════════
+   SHARED LAYOUT
+══════════════════════════════════════════════ */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 80px 52px;
+  transition: background .35s;
+}
+
+.section-wrap { padding: 80px 52px; max-width: 1300px; margin: 0 auto; }
+
+.section-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 16px; }
+
+.eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color .35s;
+}
+
+.rule {
+  flex: 1; height: 1px;
+  background: var(--border);
+  transition: background .35s;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.5px;
+  color: var(--ink);
+  margin-bottom: 48px;
+  transition: color .35s;
+}
+
+/* ══════════════════════════════════════════════
+   PORTFOLIO GRID
+   ────────────────────────────────────────────
+   HOW TO ADD YOUR IMAGES:
+   1. Create a folder called "images" next to index.html
+   2. Put your image files inside it (JPG or WebP preferred)
+   3. In the HTML below, find each portfolio-item block
+   4. Replace the <div class="port-ph"> with:
+      <img src="images/YOUR-FILE.jpg" class="port-img" alt="Project name">
+   
+   Example:
+   BEFORE:
+     <div class="port-ph"><span>Project 01</span></div>
+   
+   AFTER:
+     <img src="images/branding-project.jpg" class="port-img" alt="Branding Project">
+
+   TIP: Use WebP format for best speed (use squoosh.app to convert)
+══════════════════════════════════════════════ */
+.port-grid { columns: 3; column-gap: 10px; }
+@media (max-width: 900px) { .port-grid { columns: 2; } }
+@media (max-width: 560px)  { .port-grid { columns: 1; } }
+
+.port-item {
+  break-inside: avoid;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  overflow: hidden;       /* ← clips the zoom so it stays inside border */
+  position: relative;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: border-color .35s, box-shadow .25s;
+}
+.port-item:hover {
+  border-color: var(--border-2);
+  box-shadow: 0 8px 32px rgba(0,0,0,.1);
+}
+
+/* Both placeholder div AND real img get the same scale effect */
+.port-ph,
+.port-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  transition: transform .5s ease;
+}
+
+.port-img {
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+
+.port-ph {
+  background: var(--ph-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .35s, transform .5s ease;
+}
+
+.port-ph span {
+  font-size: 10px;
+  color: var(--ph-txt);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  user-select: none;
+  transition: color .35s;
+}
+
+/* The hover zoom — works on both real images AND placeholders */
+.port-item:hover .port-ph,
+.port-item:hover .port-img { transform: scale(1.06); }
+
+/* Hover overlay that appears on top */
+.port-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10,10,15,.52);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity .3s;
+  pointer-events: none;
+}
+.port-item:hover .port-overlay { opacity: 1; }
+
+.port-overlay span {
+  font-size: 11.5px;
+  color: #fff;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.22);
+  padding: 6px 14px;
+  border-radius: 100px;
+  backdrop-filter: blur(8px);
+  letter-spacing: .3px;
+}
+
+/* ══════════════════════════════════════════════
+   TESTIMONIALS
+   To edit: change the text inside each .t-card
+══════════════════════════════════════════════ */
+.t-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.t-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 26px;
+  transition: background .35s, border-color .25s, box-shadow .25s;
+}
+.t-card:hover {
+  border-color: var(--border-2);
+  box-shadow: 0 6px 24px rgba(0,0,0,.07);
+}
+
+.t-stars {
+  font-size: 13px; letter-spacing: 2px;
+  color: var(--ink);
+  margin-bottom: 16px;
+  transition: color .35s;
+}
+
+.t-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17.5px;
+  font-style: italic;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin-bottom: 24px;
+  transition: color .35s;
+}
+
+.t-author { display: flex; align-items: center; gap: 12px; }
+
+.t-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1px solid var(--border-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13.5px; font-weight: 500;
+  color: var(--muted);
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: background .35s;
+}
+
+.t-name { font-size: 13.5px; font-weight: 500; color: var(--ink); transition: color .35s; }
+.t-role { font-size: 12px; color: var(--muted); margin-top: 2px; transition: color .35s; }
+
+/* ══════════════════════════════════════════════
+   CTA BAND — the bold blue section
+══════════════════════════════════════════════ */
+.cta-band {
+  background: var(--blue);
+  padding: 100px 52px;
+  text-align: center;
+  transition: background .35s;
+}
+
+.cta-band h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(50px, 7.5vw, 96px);
+  font-weight: 500;
+  line-height: .9;
+  letter-spacing: -1px;
+  color: #fff;
+  margin-bottom: 22px;
+}
+.cta-band h2 span { opacity: .4; font-style: italic; }
+
+.cta-band p {
+  font-size: 16px;
+  color: rgba(255,255,255,.62);
+  max-width: 400px;
+  margin: 0 auto 38px;
+  line-height: 1.7;
+}
+
+.btn-white {
+  display: inline-block;
+  background: #fff;
+  color: var(--blue);
+  padding: 14px 36px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity .2s, color .35s;
+}
+.btn-white:hover { opacity: .88; }
+
+/* ══════════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════════ */
+.faq-list { max-width: 680px; margin: 0 auto; }
+
+.faq-item { border-bottom: 1px solid var(--border); transition: border-color .35s; }
+
+.faq-q {
+  width: 100%;
+  background: none; border: none;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15.5px; font-weight: 400;
+  text-align: left;
+  padding: 22px 0;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 20px;
+  transition: color .2s;
+}
+.faq-q:hover { color: var(--blue); }
+
+.faq-icon {
+  width: 26px; height: 26px;
+  border: 1px solid var(--border-2);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; line-height: 1;
+  color: var(--muted);
+  flex-shrink: 0;
+  transition: transform .32s, border-color .2s, color .2s;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); border-color: var(--blue); color: var(--blue); }
+
+.faq-a {
+  max-height: 0; overflow: hidden;
+  transition: max-height .34s ease;
+  font-size: 15px; color: var(--muted); line-height: 1.75;
+  transition: max-height .34s ease, color .35s;
+}
+.faq-a p { padding-bottom: 24px; }
+.faq-item.open .faq-a { max-height: 220px; }
+
+/* ══════════════════════════════════════════════
+   CONTACT
+══════════════════════════════════════════════ */
+.contact-wrap {
+  padding: 100px 52px;
+  max-width: 620px;
+  margin: 0 auto;
+  border-top: 1px solid var(--border);
+  transition: border-color .35s;
+}
+
+.contact-wrap h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 54px; font-weight: 500;
+  letter-spacing: -.5px;
+  color: var(--ink);
+  margin-bottom: 8px;
+  transition: color .35s;
+}
+
+.contact-sub { font-size: 15px; color: var(--muted); margin-bottom: 46px; transition: color .35s; }
+
+.form-row { margin-bottom: 18px; }
+
+.form-row label {
+  display: block;
+  font-size: 10.5px; letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--muted); margin-bottom: 8px;
+  transition: color .35s;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 300;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color .2s, background .35s, color .35s;
+}
+.form-row input::placeholder,
+.form-row textarea::placeholder { color: var(--muted); opacity: .55; }
+.form-row input:focus,
+.form-row textarea:focus { border-color: var(--blue); background: var(--bg); }
+.form-row textarea { resize: vertical; min-height: 120px; }
+
+.btn-blue {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 14px 40px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity .2s, background .35s;
+  margin-top: 8px;
+}
+.btn-blue:hover { opacity: .85; }
+
+/* ══════════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════════ */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+.lightbox-backdrop.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.lightbox-box {
+  position: relative;
+  width: min(62vw, 860px);
+  max-width: 92vw;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0,0,0,.55);
+  transform: scale(.88) translateY(18px);
+  transition: transform .32s cubic-bezier(.34,1.28,.64,1);
+  background: var(--bg-3);
+}
+.lightbox-backdrop.active .lightbox-box {
+  transform: scale(1) translateY(0);
+}
+.lightbox-box img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.lightbox-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.55);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  backdrop-filter: blur(6px);
+  transition: background .2s, transform .15s;
+  z-index: 2;
+}
+.lightbox-close:hover { background: rgba(0,0,0,.82); transform: scale(1.1); }
+
+/* ══════════════════════════════════════════════
+   FORM SELECT
+══════════════════════════════════════════════ */
+.form-row select {
+  width: 100%;
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 300;
+  padding: 13px 16px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8a8a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+  transition: border-color .2s, background-color .35s, color .35s;
+}
+.form-row select:focus { border-color: var(--blue); background-color: var(--bg); }
+.form-row select option { background: var(--bg-2); color: var(--ink); }
+
+/* Form status message */
+#form-status {
+  font-size: 14px;
+  margin-top: 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  display: none;
+}
+#form-status.success {
+  display: block;
+  background: rgba(34,197,94,.12);
+  color: #16a34a;
+  border: 1px solid rgba(34,197,94,.25);
+}
+#form-status.error {
+  display: block;
+  background: rgba(239,68,68,.10);
+  color: #dc2626;
+  border: 1px solid rgba(239,68,68,.22);
+}
+
+/* ══════════════════════════════════════════════
+   FOOTER
+   To change social links: replace # with your URL
+══════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 26px 52px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 13px; color: var(--muted);
+  flex-wrap: wrap; gap: 12px;
+  transition: border-color .35s, color .35s;
+}
+
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; font-weight: 600;
+  color: var(--ink); text-decoration: none;
+  transition: color .35s;
+}
+
+.footer-links { display: flex; gap: 22px; }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color .2s; }
+.footer-links a:hover { color: var(--ink); }
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav { padding: 13px 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 72px 22px 80px; }
+  .stats-wrap { padding: 0 22px; }
+  .divider { margin: 60px 22px; }
+  .section-wrap { padding: 60px 22px; }
+  .cta-band { padding: 72px 22px; }
+  .contact-wrap { padding: 72px 22px; }
+  footer { padding: 22px; flex-direction: column; text-align: center; }
+  .stats { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat:last-child { border-bottom: none; }
+  .nav-right { gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════
+     NAV
+══════════════════════ -->
+<nav>
+  <!-- ✏️ CHANGE YOUR BRAND NAME HERE ↓ -->
+  <a class="nav-logo" href="#">Vuc Designs</a>
+
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="nav-cta">Let's Talk</a></li>
+    </ul>
+
+    <!-- Light / Dark toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg id="ico-sun" viewBox="0 0 24 24" style="display:none">
+        <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-13a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0V5a1 1 0 0 1 1-1zm0 14a1 1 0 0 1 1 1v1a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1zm8-7a1 1 0 0 1-1 1h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 1 1zM5 12a1 1 0 0 1-1 1H3a1 1 0 0 1 0-2h1a1 1 0 0 1 1 1zm11.95-6.36a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0zm-9.9 9.9a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0zm9.9 2.12a1 1 0 0 1-1.41 0l-.71-.71a1 1 0 1 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41zM7.05 7.05a1 1 0 0 1-1.41 0l-.71-.71A1 1 0 1 1 6.34 4.93l.71.71a1 1 0 0 1 0 1.41z"/>
+      </svg>
+      <svg id="ico-moon" viewBox="0 0 24 24">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div class="marquee-section">
+
+  <div class="marquee-track go-left">
+    <!-- ✏️ ROW 1 — replace src with your image paths -->
+    <img src="images/thumb-01.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-02.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-03.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-10.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-11.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-12.jpg" class="thumb-img" alt="Design work"> 
+    <img src="images/thumb-01.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-02.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-03.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-10.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-11.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-12.jpg" class="thumb-img" alt="Design work"> 
+    <!-- Duplicate set for seamless loop -->
+    <img src="images/thumb-01.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-02.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-03.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-10.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-11.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-12.jpg" class="thumb-img" alt="Design work"> 
+    <img src="images/thumb-01.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-02.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-03.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-10.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-11.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-12.jpg" class="thumb-img" alt="Design work"> 
+  </div>
+
+  <div class="marquee-track go-right">
+    <!-- ✏️ ROW 2 — replace src with your image paths -->
+    <img src="images/thumb-04.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-05.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-06.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-13.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-14.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-15.jpg" class="thumb-img" alt="Design work"> 
+    <img src="images/thumb-04.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-05.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-06.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-13.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-14.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-15.jpg" class="thumb-img" alt="Design work"> 
+    <!-- Duplicate set for seamless loop -->
+    <img src="images/thumb-04.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-05.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-06.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-13.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-14.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-15.jpg" class="thumb-img" alt="Design work"> 
+    <img src="images/thumb-04.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-05.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-06.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-13.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-14.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-15.jpg" class="thumb-img" alt="Design work"> 
+  </div>
+
+  <div class="marquee-track go-slow">
+    <!-- ✏️ ROW 3 — replace src with your image paths -->
+    <img src="images/thumb-07.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-08.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-09.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-16.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-17.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-18.jpg" class="thumb-img" alt="Design work"> 
+    <img src="images/thumb-07.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-08.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-09.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-16.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-17.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-18.jpg" class="thumb-img" alt="Design work"> 
+    <!-- Duplicate set for seamless loop -->
+    <img src="images/thumb-07.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-08.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-09.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-16.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-17.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-18.jpg" class="thumb-img" alt="Design work"> 
+    <img src="images/thumb-07.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-08.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-09.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-16.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-17.jpg" class="thumb-img" alt="Design work">
+    <img src="images/thumb-18.jpg" class="thumb-img" alt="Design work"> 
+  </div>
+
+</div>
+
+<!-- ══════════════════════
+     HERO
+     ✏️ Edit h1 and p below
+══════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Currently Accepting New Clients
+  </div>
+
+  <!-- ✏️ CHANGE HEADLINE — keep <em> around the italic blue word -->
+  <h1>Where Vision<br>Gets a<em>Voice</em><br></h1>
+
+  <!-- ✏️ CHANGE BIO TEXT -->
+  <p>I'm Vuc. And no, I'm not going to tell you I'm "passionate about design" you've read that a hundred times already.<br>Some designers make things pretty. I make things work.
+    <br>That's it. That's the pitch.
+(Want proof? Let's talk.)</p>
+
+  <div class="hero-btns">
+    <a href="#contact" class="btn-ink">Start a Project</a>
+    <a href="#work" class="btn-ghost">View My Work</a>
+  </div>
+</div>
+
+<!-- ══════════════════════
+     STATS ✏️ Change numbers
+══════════════════════ -->
+<div class="stats-wrap">
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">110+</span>
+      <p class="stat-label">Projects Delivered</p>
+    </div>
+    <div class="stat">
+      <span class="stat-num">125M+</span><!-- ← this one shows in blue -->
+      <p class="stat-label">Impressions</p>
+    </div>
+    <div class="stat">
+      <span class="stat-num">5.0★</span>
+      <p class="stat-label">Average Rating</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     PORTFOLIO GRID
+     ────────────────────
+     HOW TO REPLACE PLACEHOLDERS WITH YOUR IMAGES:
+
+     Step 1 — Create a folder called "images" next to index.html
+     Step 2 — Copy your image files into that folder
+     Step 3 — For each project below, find the <div class="port-ph">
+              and replace it with:
+              <img src="images/YOURFILE.jpg" class="port-img" alt="Project Name">
+
+     EXAMPLE (before):
+       <div class="port-ph"><span>Project 01 — Add your image</span></div>
+
+     EXAMPLE (after):
+       <img src="images/brand-identity.jpg" class="port-img" alt="Brand Identity">
+
+     TIP: Use 16:9 ratio images for best results
+     TIP: Convert to WebP using squoosh.app for faster loading
+══════════════════════ -->
+<div id="work" class="section-wrap">
+  <div class="section-head">
+    <span class="eyebrow">Portfolio</span>
+    <div class="rule"></div>
+  </div>
+  <h2 class="section-title">Featured Work</h2>
+
+  <div class="port-grid">
+
+    <!-- PROJECT 1 ✏️ → images/project-01.jpg -->
+    <div class="port-item" data-img="images/project-01.jpg" data-alt="Project 01">
+      <img src="images/project-01.jpg" class="port-img" alt="Project 01">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 2 ✏️ → images/project-02.jpg -->
+    <div class="port-item" data-img="images/project-02.jpg" data-alt="Project 02">
+      <img src="images/project-02.jpg" class="port-img" alt="Project 02">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 3 ✏️ → images/project-03.jpg -->
+    <div class="port-item" data-img="images/project-03.jpg" data-alt="Project 03">
+      <img src="images/project-03.jpg" class="port-img" alt="Project 03">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 4 ✏️ → images/project-04.jpg -->
+    <div class="port-item" data-img="images/project-04.jpg" data-alt="Project 04">
+      <img src="images/project-04.jpg" class="port-img" alt="Project 04">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 5 ✏️ → images/project-05.jpg -->
+    <div class="port-item" data-img="images/project-05.jpg" data-alt="Project 05">
+      <img src="images/project-05.jpg" class="port-img" alt="Project 05">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 6 ✏️ → images/project-06.jpg -->
+    <div class="port-item" data-img="images/project-06.jpg" data-alt="Project 06">
+      <img src="images/project-06.jpg" class="port-img" alt="Project 06">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 7 ✏️ → images/project-07.jpg -->
+    <div class="port-item" data-img="images/project-07.jpg" data-alt="Project 07">
+      <img src="images/project-07.jpg" class="port-img" alt="Project 07">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 8 ✏️ → images/project-08.jpg -->
+    <div class="port-item" data-img="images/project-08.jpg" data-alt="Project 08">
+      <img src="images/project-08.jpg" class="port-img" alt="Project 08">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 9 ✏️ → images/project-09.jpg -->
+    <div class="port-item" data-img="images/project-09.jpg" data-alt="Project 09">
+      <img src="images/project-09.jpg" class="port-img" alt="Project 09">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 10 ✏️ → images/project-10.jpg -->
+    <div class="port-item" data-img="images/project-10.jpg" data-alt="Project 10">
+      <img src="images/project-10.jpg" class="port-img" alt="Project 10">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 11 ✏️ → images/project-11.jpg -->
+    <div class="port-item" data-img="images/project-11.jpg" data-alt="Project 11">
+      <img src="images/project-11.jpg" class="port-img" alt="Project 11">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+    <!-- PROJECT 12 ✏️ → images/project-12.jpg -->
+    <div class="port-item" data-img="images/project-12.jpg" data-alt="Project 12">
+      <img src="images/project-12.jpg" class="port-img" alt="Project 12">
+      <div class="port-overlay"><span>View Project →</span></div>
+    </div>
+
+  </div><!-- end port-grid -->
+</div>
+
+<div class="divider"></div>
+
+<!-- ══════════════════════
+     TESTIMONIALS
+     ✏️ Change name, role, and quote text below
+══════════════════════ -->
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <!-- ✏️ Change headline and paragraph text -->
+  <h2>Let's Amplify<br><span>Your Growth</span></h2>
+  <p>Let's build something worth remembering.</p>
+  <a href="#contact" class="btn-white">Start Now →</a>
+</div>
+
+<!-- ══════════════════════
+     FAQ ✏️ Change questions and answers
+══════════════════════ -->
+<div id="faq" class="section-wrap">
+  <div class="section-head">
+    <span class="eyebrow">FAQ</span>
+    <div class="rule"></div>
+  </div>
+  <h2 class="section-title">Questions</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q">What types of design do you offer?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>I specialize in Thumbnails and Posters. Contact me to discuss your specific Niche.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How long does a project take?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Typically 24-72 hours depending on complexity.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">How do we get started?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Fill out the contact form below or reach out on email. We'll discuss your project and kick things off right away.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">Do you offer revisions?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Yes! I always share a concept first before finalizing. Revisions are included to ensure you're 100% happy with the result.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">What do you need from me?<span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>A brief description of your project, any references or styles you like, and any specific images or assets you'd like to included.</p></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NOTE: Customer feedback/review section is prepared but not shown yet.
+     When you're ready to add it, tell me and I'll build it in. -->
+
+<!-- ══════════════════════
+     CONTACT
+     ✏️ Change sub text if needed
+══════════════════════ -->
+<div id="contact" class="contact-wrap">
+  <h2>Contact</h2>
+  <p class="contact-sub">Let's talk about your next project.</p>
+
+  <div class="form-row">
+    <label>Your Name</label>
+    <input type="text" id="f-name" placeholder="John Smith">
+  </div>
+  <div class="form-row">
+    <label>Email</label>
+    <input type="email" id="f-email" placeholder="john@example.com">
+  </div>
+  <div class="form-row">
+    <label>How should I contact you?</label>
+    <select id="f-platform">
+      <option value="" disabled selected>Choose platform...</option>
+      <option value="WhatsApp">WhatsApp</option>
+      <option value="Discord">Discord</option>
+      <option value="Twitter (X)">Twitter (X)</option>
+      <option value="Email">Email</option>
+    </select>
+  </div>
+  <div class="form-row">
+    <label>Handle / Email / Number</label>
+    <input type="text" id="f-handle" placeholder="@yourhandle or +91 99999 99999">
+  </div>
+  <div class="form-row">
+    <label>Link to your YouTube channel</label>
+    <input type="url" id="f-youtube" placeholder="https://youtube.com/@yourchannel">
+  </div>
+  <div class="form-row">
+    <label>Project Details</label>
+    <textarea id="f-message" placeholder="Tell me about your project..."></textarea>
+  </div>
+  <button class="btn-blue" id="f-submit">Send Message</button>
+  <div id="form-status"></div>
+</div>
+
+<!-- ══════════════════════
+     FOOTER
+     ✏️ Replace # in href with your real links
+     e.g. href="https://instagram.com/yourhandle"
+══════════════════════ -->
+<footer>
+  <a class="footer-logo" href="#">Vuc Designs</a>
+  <span>© 2025 Vuc Designs. All rights reserved.</span>
+  <div class="footer-links">
+    <a href="#"></a><!-- ✏️ Replace # -->
+    <a href="#"></a>
+    <a href="#"></a>
+    <a href="#"></a>
+  </div>
+</footer>
+
+<!-- ══════════════════════
+     LIGHTBOX
+══════════════════════ -->
+<div class="lightbox-backdrop" id="lightbox">
+  <div class="lightbox-box" id="lightbox-box">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <img src="" alt="" id="lightbox-img">
+  </div>
+</div>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+/* ══ EMAILJS INIT ══
+   SETUP STEPS (one-time, takes 5 min):
+   1. Go to https://www.emailjs.com and sign up (free)
+   2. Add an Email Service → connect your Gmail → copy the Service ID
+   3. Create an Email Template → use variables: {{from_name}}, {{from_email}},
+      {{platform}}, {{handle}}, {{youtube}}, {{message}}
+      Set "To Email" as: rajtamori123@gmail.com
+   4. Copy your Public Key from Account → API Keys
+   5. Replace the 3 values below with your actual IDs
+*/
+const EMAILJS_PUBLIC_KEY  = 'Z4JRgFgw3_2bDI-yv';   // ← replace
+const EMAILJS_SERVICE_ID  = 'service_5dzg2p6';   // ← replace
+const EMAILJS_TEMPLATE_ID = 'template_bumwaye';  // ← replace
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+/* ══ THEME TOGGLE ══ */
+const html = document.documentElement;
+const toggleBtn = document.getElementById('themeToggle');
+const iconSun  = document.getElementById('ico-sun');
+const iconMoon = document.getElementById('ico-moon');
+
+function setTheme(t) {
+  html.setAttribute('data-theme', t);
+  localStorage.setItem('vuc-theme', t);
+  iconSun.style.display  = t === 'dark' ? 'block' : 'none';
+  iconMoon.style.display = t === 'dark' ? 'none'  : 'block';
+}
+
+toggleBtn.addEventListener('click', () => {
+  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+/* Respect saved preference, then OS preference */
+const saved = localStorage.getItem('vuc-theme');
+if (saved) {
+  setTheme(saved);
+} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  setTheme('dark');
+} else {
+  setTheme('light');
+}
+
+/* ══ FAQ ACCORDION ══ */
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+/* ══ LIGHTBOX ══ */
+const backdrop   = document.getElementById('lightbox');
+const lbBox      = document.getElementById('lightbox-box');
+const lbImg      = document.getElementById('lightbox-img');
+const lbClose    = document.getElementById('lightbox-close');
+
+function openLightbox(src, alt) {
+  lbImg.src = src;
+  lbImg.alt = alt || '';
+  backdrop.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  backdrop.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+/* Click on any portfolio item opens lightbox */
+document.querySelectorAll('.port-item[data-img]').forEach(item => {
+  item.addEventListener('click', () => {
+    openLightbox(item.dataset.img, item.dataset.alt);
+  });
+});
+
+/* Click backdrop (outside box) closes */
+backdrop.addEventListener('click', (e) => {
+  if (!lbBox.contains(e.target)) closeLightbox();
+});
+
+/* Close button */
+lbClose.addEventListener('click', closeLightbox);
+
+/* Escape key closes */
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+/* ══ CONTACT FORM ══ */
+const submitBtn  = document.getElementById('f-submit');
+const statusBox  = document.getElementById('form-status');
+
+function showStatus(msg, type) {
+  statusBox.textContent = msg;
+  statusBox.className = type; /* 'success' or 'error' */
+}
+
+submitBtn.addEventListener('click', async () => {
+  const name     = document.getElementById('f-name').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const platform = document.getElementById('f-platform').value;
+  const handle   = document.getElementById('f-handle').value.trim();
+  const youtube  = document.getElementById('f-youtube').value.trim();
+  const message  = document.getElementById('f-message').value.trim();
+
+  /* Basic validation */
+  if (!name || !email || !message) {
+    showStatus('Please fill in your name, email, and project details.', 'error');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showStatus('Please enter a valid email address.', 'error');
+    return;
+  }
+
+  submitBtn.textContent = 'Sending…';
+  submitBtn.disabled = true;
+
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      from_name : name,
+      from_email: email,
+      platform  : platform || 'Not specified',
+      handle    : handle   || 'Not provided',
+      youtube   : youtube  || 'Not provided',
+      message   : message,
+      to_email  : 'rajtamori123@gmail.com',
+    });
+
+    showStatus('✓ Message sent! I\'ll get back to you soon.', 'success');
+    /* Clear form */
+    ['f-name','f-email','f-handle','f-youtube','f-message'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-platform').value = '';
+
+  } catch (err) {
+    console.error('EmailJS error:', err);
+    showStatus('Something went wrong. Please try emailing rajtamori123@gmail.com directly.', 'error');
+  }
+
+  submitBtn.textContent = 'Send Message';
+  submitBtn.disabled = false;
+});
+</script>
+</body>
+</html>
